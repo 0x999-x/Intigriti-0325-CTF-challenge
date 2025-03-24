@@ -1,0 +1,39 @@
+{
+  "name": "leaky-flagment",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-scroll-area": "^1.2.2",
+    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-switch": "^1.1.2",
+    "@radix-ui/react-toast": "^1.2.4",
+    "@radix-ui/react-tooltip": "^1.1.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cookies": "^0.9.1",
+    "ioredis": "^5.4.2",
+    "lucide-react": "^0.473.0",
+    "next": "15.1.5",
+    "next-themes": "^0.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sonner": "^1.7.2",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^11.0.5",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

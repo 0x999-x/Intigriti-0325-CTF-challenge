@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 300 35% 94%;
+    --foreground: 300 35% 34%;
+    --muted: 300 12% 90%;
+    --muted-foreground: 300 12% 30%;
+    --popover: 300 35% 91%;
+    --popover-foreground: 300 35% 24%;
+    --card: 300 35% 92%;
+    --card-foreground: 300 35% 29%;
+    --border: 300 25% 89%;
+    --input: 300 25% 86%;
+    --primary: 320 61% 65%;
+    --primary-foreground: 320 61% 5%;
+    --secondary: 320 30% 25%;
+    --secondary-foreground: 320 30% 85%;
+    --accent: 300 35% 79%;
+    --accent-foreground: 300 35% 19%;
+    --destructive: 8 100% 26%;
+    --destructive-foreground: 8 100% 86%;
+    --ring: 320 61% 65%;
+    --chart-1: 320 61% 65%;
+    --chart-2: 320 30% 25%;
+    --chart-3: 300 35% 79%;
+    --chart-4: 320 30% 28%;
+    --chart-5: 320 64% 65%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 300 35% 94%;
+    --foreground: 300 35% 34%;
+    --muted: 300 12% 90%;
+    --muted-foreground: 300 12% 30%;
+    --popover: 300 35% 91%;
+    --popover-foreground: 300 35% 24%;
+    --card: 300 35% 92%;
+    --card-foreground: 300 35% 29%;
+    --border: 300 25% 89%;
+    --input: 300 25% 86%;
+    --primary: 320 61% 65%;
+    --primary-foreground: 320 61% 5%;
+    --secondary: 320 30% 25%;
+    --secondary-foreground: 320 30% 85%;
+    --accent: 300 35% 79%;
+    --accent-foreground: 300 35% 19%;
+    --destructive: 8 100% 26%;
+    --destructive-foreground: 8 100% 86%;
+    --ring: 320 61% 65%;
+    --chart-1: 320 61% 65%;
+    --chart-2: 320 30% 25%;
+    --chart-3: 300 35% 79%;
+    --chart-4: 320 30% 28%;
+    --chart-5: 320 64% 65%;
+  }
+}
+
+
+
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}

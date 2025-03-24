@@ -1,0 +1,64 @@
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+    cap_add:
+      - SYS_RESOURCE
+    privileged: true
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+  nextjs:
+    build: ./nextjs-app
+    depends_on:
+      - redis
+    restart: unless-stopped
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USERNAME=nextjs
+      - REDIS_PASSWORD=nextjs_secret_pass
+      - REDIS_KEY_PREFIX="nextjs:"
+      - DOMAIN=localhost
+
+  bot:
+    build: ./bot
+    user: "1001:1001"
+    ports:
+      - "127.0.0.1:6000:6000"
+    depends_on:
+      - redis
+    restart: unless-stopped
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USERNAME=bot
+      - REDIS_PASSWORD=bot_secret_pass
+      - REDIS_KEY_PREFIX="bot:"
+      - BASE_URL=http://localhost
+      - FLAG=INTIGRITI{f4k3_fl4g}
+    cap_drop:
+      - all
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    ulimits:
+      nofile:   
+        soft: 1024
+        hard: 1024
+        
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - nextjs
+    restart: unless-stopped
+
